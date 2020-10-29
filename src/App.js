@@ -38,7 +38,7 @@ export default () => {
     const [showDropdown, setShowDropdown] = useState(true);
     const panes = [
         {
-            menuItem: 'Acceleration',
+            menuItem: 'Accordion',
             render: () => <Tab.Pane attached={false}><Accordion items={items}/></Tab.Pane>,
         },
         {
