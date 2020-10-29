@@ -2,8 +2,20 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 const Search = () => {
-    const [term, setTerm] = useState('');
+    const [term, setTerm] = useState('programming');
+    const [debounceTerm, setDebounceTerm] = useState(term);
     const [results, setResults] = useState([]);
+
+    useEffect(() => {
+        const timerId = setTimeout(() =>{
+            setDebounceTerm(term)
+        }, 1000);
+
+        return() => {
+            clearTimeout(timerId);
+        }
+    },[term])
+
     useEffect(() => {
         const search = async () => {
             const {data} = await axios.get('https://en.wikipedia.org/w/api.php',
@@ -13,33 +25,26 @@ const Search = () => {
                         list: 'search',
                         origin: '*',
                         format: 'json',
-                        srsearch: term
+                        srsearch: debounceTerm
                     }
                 });
             setResults(data.query.search);
         };
-       const timeOutId = setTimeout(() => {
-            if (term) {
-                search();
-            }
-        },1000);
-        return() => {
-            clearTimeout(timeOutId);
-        };
-    }, [term]);
+        search();
+    },[debounceTerm])
 
     const renderedResults = results.map((result) => {
         return (
             <div className="item" key={result.pageid}>
                 <div className="right floated content">
                     <a href={`https://en.wikipedia.org?curid=${result.pageid}`} className="ui button"
-                       target="_blank">GO </a>
+                       target="_blank" rel="noopener noreferrer">GO </a>
                 </div>
                 <div className="content">
                     <div className="header">
                         {result.title}
                     </div>
-                    <span dangerouslySetInnerHTML={{__html: result.snippet}}></span>
+                    <span dangerouslySetInnerHTML={{__html: result.snippet}}/>
                 </div>
             </div>
         );
