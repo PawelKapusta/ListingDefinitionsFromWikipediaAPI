@@ -20,6 +20,10 @@ const items = [
 ];
 const options = [
     {
+        label: 'The color black',
+        value: 'black'
+    },
+    {
         label: 'The color red',
         value: 'red'
     },

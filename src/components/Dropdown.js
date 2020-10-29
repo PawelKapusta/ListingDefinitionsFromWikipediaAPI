@@ -3,7 +3,7 @@ import React, {useState, useEffect, useRef} from 'react';
 const Dropdown = ({options, selected, onSelectedChange}) => {
     const [open, setOpen] = useState(false);
     const ref = useRef();
-
+    const [activeColor, setActiveColor] = useState('black');
     useEffect(() => {
         const onBodyClick = (event) => {
             if (ref.current.contains(event.target)) {
@@ -17,13 +17,16 @@ const Dropdown = ({options, selected, onSelectedChange}) => {
         };
     }, []);
 
-
+    function changeOptions (option, value){
+        onSelectedChange(option);
+        setActiveColor(value);
+    }
     const renderedOptions = options.map((option) => {
         if (option.value === selected.value) {
             return null;
         }
         return (
-            <div key={option.value} className="item" onClick={() => onSelectedChange(option)}>{option.label}</div>
+            <div key={option.value} className="item" onClick={() => changeOptions(option, option.value)}>{option.label}</div>
         );
     })
 
@@ -38,7 +41,7 @@ const Dropdown = ({options, selected, onSelectedChange}) => {
                         {renderedOptions}
                     </div>
                 </div>
-                <div className="ui container">
+                <div className={`ui ${activeColor} header container`}>
                     Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf ancestors, which
                     would have been pack hunters with complex body language. These sophisticated forms of social
                     cognition and communication may account for their trainability, playfulness, and ability to fit into
