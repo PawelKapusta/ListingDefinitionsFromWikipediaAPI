@@ -3,7 +3,7 @@ import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
 import { Tab } from 'semantic-ui-react'
-
+import Translate from "./components/Translate";
 const items = [
     {
         title: 'What is React?',
@@ -36,7 +36,11 @@ const options = [
         value: "blue"
     }
 ]
-
+const text = "Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf ancestors, which\n" +
+    "                    would have been pack hunters with complex body language. These sophisticated forms of social\n" +
+    "                    cognition and communication may account for their trainability, playfulness, and ability to fit into\n" +
+    "                    human households and social situations, and these attributes have given dogs a relationship with\n" +
+    "                    humans that has enabled them to become one of the most successful species on the planet today.";
 export default () => {
     const [selected, setSelected] = useState(options[0]);
     const [showDropdown, setShowDropdown] = useState(true);
@@ -54,15 +58,16 @@ export default () => {
             render: () => <Tab.Pane attached={false}><button onClick={() => setShowDropdown(!showDropdown)}>Toggle dropdown</button>
                 {
                     showDropdown ?
-                        <Dropdown options={options}
+                        <Dropdown label="Select a color" options={options}
                                   selected={selected}
                                   onSelectedChange={setSelected}
+                                  text={text}
                         />
                         : null
                 }</Tab.Pane>,
         },{
         menuItem: 'Translator',
-            render: () => <Tab.Pane attached={false}></Tab.Pane>
+            render: () => <Tab.Pane attached={false}><Translate/></Tab.Pane>
         }
 
     ]

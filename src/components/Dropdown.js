@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 
-const Dropdown = ({options, selected, onSelectedChange}) => {
+const Dropdown = ({label,options, selected, onSelectedChange,text}) => {
     const [open, setOpen] = useState(false);
     const ref = useRef();
     const [activeColor, setActiveColor] = useState('black');
@@ -33,7 +33,7 @@ const Dropdown = ({options, selected, onSelectedChange}) => {
     return (
         <div ref={ref} className="ui form">
             <div className="field">
-                <label className="label">Selected a color</label>
+                <label className="label">{label}</label>
                 <div onClick={() => setOpen(!open)} className={`ui selection dropdown ${open ? 'visible active' : ''}`}>
                     <i className="dropdown icon"/>
                     <div className="text">{selected.label}</div>
@@ -42,11 +42,7 @@ const Dropdown = ({options, selected, onSelectedChange}) => {
                     </div>
                 </div>
                 <div className={`ui ${activeColor} header container`}>
-                    Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf ancestors, which
-                    would have been pack hunters with complex body language. These sophisticated forms of social
-                    cognition and communication may account for their trainability, playfulness, and ability to fit into
-                    human households and social situations, and these attributes have given dogs a relationship with
-                    humans that has enabled them to become one of the most successful species on the planet today.
+                    {text}
                 </div>
             </div>
         </div>
