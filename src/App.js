@@ -60,7 +60,7 @@ const text = "Domestic dogs inherited complex behaviors, such as bite inhibition
     "                    would have been pack hunters with complex body language. These sophisticated forms of social\n" +
     "                    cognition and communication may account for their trainability, playfulness, and ability to fit into\n" +
     "                    human households and social situations, and these attributes have given dogs a relationship with\n" +
-    "                    humans that has enabled them to become one of the most successful species on the planet today.";
+    "                    humans that has enabled them to become one of the most successful species on the planet today. ";
 export default () => {
     const [selected, setSelected] = useState(options[0]);
     const [showDropdown, setShowDropdown] = useState(true);
