@@ -86,10 +86,12 @@ export default () => {
                         />
                         : null
                 }</Tab.Pane>,
-        }, {
-            menuItem: 'Translator',
-            render: () => <Tab.Pane attached={false}><Translate/></Tab.Pane>
         }
+        //I do not have access to this API
+        //  {
+        //     menuItem: 'Translator',
+        //     render: () => <Tab.Pane attached={false}><Translate/></Tab.Pane>
+        // }
 
     ]
 
