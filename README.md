@@ -3,7 +3,7 @@
  
  <br>
 <b>Screenshots of application: </b><br>
-<img width="1916px" src="https://user-images.githubusercontent.com/61249196/97802210-1a530600-1c42-11eb-8173-1a58d929291c.png">
+<img width="1916px" height="683" src="https://user-images.githubusercontent.com/61249196/97802210-1a530600-1c42-11eb-8173-1a58d929291c.png">
 <img src="https://user-images.githubusercontent.com/61249196/97802217-250d9b00-1c42-11eb-8be5-0c9aa39676e9.png">
 <img src="https://user-images.githubusercontent.com/61249196/97802225-3060c680-1c42-11eb-8d72-c71ec5300c91.png">
 
