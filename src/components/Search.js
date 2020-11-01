@@ -7,14 +7,14 @@ const Search = () => {
     const [results, setResults] = useState([]);
 
     useEffect(() => {
-        const timerId = setTimeout(() =>{
+        const timerId = setTimeout(() => {
             setDebounceTerm(term)
         }, 1000);
 
-        return() => {
+        return () => {
             clearTimeout(timerId);
         }
-    },[term])
+    }, [term])
 
     useEffect(() => {
         const search = async () => {
@@ -30,8 +30,11 @@ const Search = () => {
                 });
             setResults(data.query.search);
         };
+
         search();
-    },[debounceTerm])
+
+
+    }, [debounceTerm])
 
     const renderedResults = results.map((result) => {
         return (
@@ -57,7 +60,8 @@ const Search = () => {
                 <input value={term} onChange={e => setTerm(e.target.value)}/>
             </div>
         </div>
-        <div className="ui celled list">{renderedResults}</div>
+        <div className="ui celled list">
+            {renderedResults}</div>
     </div>);
 }
 

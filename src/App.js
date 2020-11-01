@@ -2,8 +2,9 @@ import React, {useState} from 'react'
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
-import { Tab } from 'semantic-ui-react'
+import {Tab} from 'semantic-ui-react'
 import Translate from "./components/Translate";
+
 const items = [
     {
         title: 'What is React?',
@@ -34,6 +35,25 @@ const options = [
     {
         label: "The color blue",
         value: "blue"
+    },
+    {
+        label: 'The color orange',
+        value: 'orange'
+    },
+    {
+        label: 'The color brown',
+        value: 'brown'
+    },
+    {
+        label: 'The color purple',
+        value: 'purple'
+    }, {
+        label: "The color pink",
+        value: 'pink'
+    },
+    {
+        label: "The color grey",
+        value: 'grey'
     }
 ]
 const text = "Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf ancestors, which\n" +
@@ -55,7 +75,8 @@ export default () => {
         },
         {
             menuItem: 'DropdownBar',
-            render: () => <Tab.Pane attached={false}><button onClick={() => setShowDropdown(!showDropdown)}>Toggle dropdown</button>
+            render: () => <Tab.Pane attached={false}>
+                <button onClick={() => setShowDropdown(!showDropdown)}>Toggle dropdown</button>
                 {
                     showDropdown ?
                         <Dropdown label="Select a color" options={options}
@@ -65,8 +86,8 @@ export default () => {
                         />
                         : null
                 }</Tab.Pane>,
-        },{
-        menuItem: 'Translator',
+        }, {
+            menuItem: 'Translator',
             render: () => <Tab.Pane attached={false}><Translate/></Tab.Pane>
         }
 
@@ -74,7 +95,7 @@ export default () => {
 
     return (
         <div>
-            <Tab menu={{ pointing: true }} panes={panes} />
+            <Tab menu={{pointing: true}} panes={panes}/>
         </div>
     );
 };
